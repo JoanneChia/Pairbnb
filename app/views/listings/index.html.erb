@@ -1,9 +1,8 @@
 <%= render 'listings/navbar'%>
 
 <div class="container">
-<div class="jumbotron listing_table_2">
-
-<h1>Listings</h1>
+  <div class="jumbotron listing_table_2">
+    <h1>Listings</h1>
 
 <table class="table table-hover">
   <thead>
@@ -23,9 +22,11 @@
         <td><%= listing.price %></td>
         <td><%= listing.description %></td>
         <td><%= listing.image %></td>
+        <% if current_user.id == listing.user_id %>
         <td><%= link_to 'Show', listing %></td>
         <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
         <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

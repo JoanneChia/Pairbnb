@@ -31,7 +31,7 @@
     <small class="text-muted">Specific but brief</small>
   </fieldset>
   <fieldset class="form-group">
-    <%= f.file_field :image, class: 'form-control-file' %> 
+    <%= f.file_field :image , accept: 'image/jpeg,image/gif,image/png', class: 'form-control-file' %> 
   </fieldset>
   <%= f.submit "Create Lisiting", class: "btn btn-primary"%>
 </form>

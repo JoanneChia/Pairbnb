@@ -1,11 +1,12 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   # before_action :logged_in_user, only: [:create, :destroy]
-  before_action :correct_user,   only: :destroy
+  # before_action :correct_user,   only: :destroy
 
   # GET /listings
   # GET /listings.json
   def index
+    # @user = current_user
     @listings = Listing.all
   end
 
@@ -59,12 +60,17 @@ class ListingsController < ApplicationController
   # DELETE /listings/1
   # DELETE /listings/1.json
   def destroy
-    @listing.destroy
-    respond_to do |format|
-      format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }
-      format.json { head :no_content }
+    if current_user == @listing.user
+      @listing.destroy
+      redirect_to listings_path
+    else 
+      redirect_to listings_path
     end
+    # respond_to do |format|
+    #   format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }
+    #   format.json { head :no_content }
   end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -77,10 +83,9 @@ class ListingsController < ApplicationController
       params.require(:listing).permit(:name, :price, :description, :image)
     end
 
-    def correct_user
-      @listing = current_user.image.find_by(id: params[:id])
-      redirect_to root_url if @listing.nil?
-    end
-
+    # def correct_user
+    #   @listing = current_user.image.find_by(id: params[:id])
+    #   redirect_to root_url if @listing.nil?
+    # end
 
 end
