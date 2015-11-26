@@ -1,0 +1,35 @@
+<%= render 'navbar'%>
+
+<div class="container">
+<div class="jumbotron listing_table new-thing">
+
+<h1>Your New Listing</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @listings.name %></td>
+        <td><%= @listings.price %></td>
+        <td><%= @listings.description %></td>
+        <td><%= image_tag @listing.image.url.to_s if @listing.image.url.present? %></td>
+      </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Back', listings_path %>
+
+</div>
+</div>
+
+
+

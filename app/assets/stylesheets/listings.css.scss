@@ -1,0 +1,57 @@
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.listing_table{
+	margin-top: 60px;
+	background-color: rgba(0, 126, 255, 0.00);
+}
+
+.listing_table_2{
+	background-color: #E5A470;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.navbar-default { 
+	background-color: rgba(0, 126, 255, 0.00);
+	height: 60px;
+}
+
+.field {
+	margin: 0 auto; 
+	width:250px;
+}
+.action {
+	margin: 0 auto; 
+	width:250px;
+}
+
+.show-form {
+	margin: 0 auto; 
+	width:250px;
+}
+
+.new-form {
+	margin-top: 120px;	
+	background-color: #E5A470;
+	padding: 20px;
+	border-radius: 25px;
+}
+
+.registration {
+	margin-bottom: 22px;
+}
+
+.wrapper {
+    text-align: center;
+    width: 500px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+.How-it-works-btn {
+    position: absolute;
+}
