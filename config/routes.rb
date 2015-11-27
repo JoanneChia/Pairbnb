@@ -2,8 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   resources :users
-  resources :listings, except: [:create]
-  post 'listings/new', to: "listings#create"
+  resources :listings, except: [:create], shallow: true do
+    resources :reservations, only: [:new, :create]
+  end
+  post '/listings/:listing_id/reservations/new', to: 'reservations#create'
+  post '/listings/new', to: "listings#create"
   root 'pages#welcome'
   get '/welcome', to: 'pages#welcome'
 

@@ -1,0 +1,61 @@
+ <%= render 'listings/navbar' %>
+
+	</div>
+<%= form_for [@listing, @reservation] do |t| %>
+		<% if @listing.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+
+		      <ul>
+		      <% @listing.errors.full_messages.each do |message| %>
+		        <li><%= message %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+
+
+<div class="container">
+	<div class="row">
+    <div class="jumbotron listing_table_2" "well col-md-8 col-md-offset-2">
+    	<h2>Make a reservation</h2>
+    
+		<div class="test">
+			<fieldset class="form-inline">Check-in date</label>
+				<%= t.date_field :checkin_date, class: 'form-control' %>
+			</fieldset>
+		</div>
+		<br>
+
+    <div class="test">
+    	<fieldset class="form-inline">Check-out date</label>
+    		<%= t.date_field :checkout_date %>
+    	</fieldset>
+		</div>
+		<br>
+
+		<div class="test">
+			<fieldset class= "form_inline">No. of people</label>
+				<%= t.text_field :people_count %>
+			</fieldset>
+		</div>
+			</ul>
+		<br>
+
+		<div>
+		<%= t.submit "Book this date", class: "btn btn-primary"  %>
+		</div>
+​	</div>
+	<% end %>
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

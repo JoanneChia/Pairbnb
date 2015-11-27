@@ -40,6 +40,9 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+gem 'validates_overlap'
+
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'

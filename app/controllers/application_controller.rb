@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
   before_action :current_user
   before_action :user_session
   before_filter :configure_permitted_parameters, if: :devise_controller?
-
+  include ApplicationHelper
+  
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) { |u| 
       u.permit(:password, :password_confirmation, :current_password) 

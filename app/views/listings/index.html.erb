@@ -22,6 +22,7 @@
         <td><%= listing.price %></td>
         <td><%= listing.description %></td>
         <td><%= listing.image %></td>
+        <td><%= link_to 'Book now', new_listing_reservation_path(listing) %></td>
         <% if current_user.id == listing.user_id %>
         <td><%= link_to 'Show', listing %></td>
         <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
@@ -36,6 +37,7 @@
 
 
 <%= link_to 'New Listing', new_listing_path %><br>
+<%= render 'links' %>
 
   </div>
    </div>
