@@ -31,6 +31,8 @@ class ListingsController < ApplicationController
   def create
     @listing = current_user.listings.new(listing_params)
     if @listing.save!
+ # Sends email to user after listing has been created     
+  ExampleMailer.listing_confirmation(@listing).deliver_now     
       redirect_to listings_path
     else 
       render new

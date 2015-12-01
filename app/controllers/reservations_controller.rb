@@ -7,7 +7,7 @@ class ReservationsController < ApplicationController
 
 	def create	
 		@reservation = current_listing.reservations.new(reservations_params)
-		if @reservation.save
+		if @reservation.save	
 			a = @reservation.checkout_date - @reservation.checkin_date
 			@reservation[:day_count] = a.to_i
 			@reservation[:total_price] = (a.to_i)*(current_listing.price)
